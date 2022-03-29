@@ -1,3 +1,12 @@
+To run the project Please clone it to the /var/www/<foldername>/ 
+Make sure the server is running and access the page.
+    
+change the data on .env file to point to the right database
+    
+run php artisan migrate for migration to run on the database
+    
+In case to change any modifications run npm run hot
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

@@ -4,11 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+/** Models **/
 use App\Models\Note;
 
+/** Notes controller that takes care of CRUD operations**/
 class NotesController extends Controller
 {
-
+	/**
+	 * Get Notes API
+	 * 
+	 * @param Illuminate\Http\Request $request
+	 * 
+	 * @return Illuminate\Http\Response
+	 * */
 	public function index(Request $request){
 		$notes = Note::get();
 		$response = [
@@ -18,6 +27,13 @@ class NotesController extends Controller
 		return response()->json($response,200);
 	}
 
+	/**
+	 * Get a Note by id API
+	 * 
+	 * @param Illuminate\Http\Request $request
+	 * 
+	 * @return Illuminate\Http\Response
+	 * */
 	public function getById(Request $request){
 		$note = Note::where('id',$request->id)->first();
 		if($note){
@@ -35,6 +51,17 @@ class NotesController extends Controller
 		}
 	}
 
+	/**
+	 * Create a note API
+	 * 
+	 * @param Illuminate\Http\Request $request
+	 * notes structure
+	 * {
+	 * 	note: "note"
+	 * }
+	 * 
+	 * @return Illuminate\Http\Response
+	 * */
 	public function create(Request $request){
 		$note_data = [
 			'note' => $request->note
@@ -43,6 +70,13 @@ class NotesController extends Controller
 
 	}
 
+	/**
+	 * update a note by id API
+	 * 
+	 * @param Illuminate\Http\Request $request, int $id
+	 * 
+	 * @return Illuminate\Http\Response
+	 * */
 	public function update(Request $request, $id){
 		$existing_note = Note::find($id);
 		if($existing_note){
@@ -62,6 +96,14 @@ class NotesController extends Controller
 		}
 	}
 
+
+	/**
+	 * Delete a note by id API
+	 * 
+	 * @param int $id
+	 * 
+	 * @return Illuminate\Http\Response
+	 * */
 	public function delete($id){
 		$existing_note = Note::find($id);
 		if($existing_note){

@@ -8,6 +8,8 @@ class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
+     * 
+     * Migration to create the notes table
      *
      * @return void
      */

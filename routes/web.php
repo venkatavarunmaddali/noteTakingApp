@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+/*Notes CRUD routes*/
 Route::group(['prefix'=> 'notes'], function(){
     Route::get('',[NotesController::class,'index']);
     Route::get('/{id}',[NotesController::class, 'getById']);
